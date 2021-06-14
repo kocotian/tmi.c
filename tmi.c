@@ -190,7 +190,7 @@ tmi_msg(tmi_t *connection, const char *fmt, ...)
 	int fd = connection->fd;
 	n = writef(fd, "PRIVMSG #%s :", connection->channel);
 	va_start(ap, fmt);
-	n += writelnf(fd, fmt, ap);
+	n += vwritef(fd, 1, fmt, ap);
 	va_end(ap);
 	return n;
 }
