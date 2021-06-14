@@ -23,7 +23,7 @@
 
 #include <sys/types.h>
 
-#include "str.c"
+#include "str.h"
 
 /* configuration */
 static char *hostname           = "irc.twitch.tv";
