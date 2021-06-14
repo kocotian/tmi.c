@@ -152,7 +152,10 @@ tmi_handle(tmi_t *connection, void (handler)(tmi_t *, tmievent_t *))
 		Strtok(&ev.params, &ev.command, ' ');
 
 		/* calling handler to handle parsed line */
-		handler(connection, &ev);
+		if (fork() == 0) {
+			/* forking - asynchronous event handling :) */
+			exit(handler(connection, &ev));
+		}
 	} while (rb);
 
 	exit(0);
