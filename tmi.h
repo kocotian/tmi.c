@@ -46,7 +46,7 @@ typedef struct tmievent {
 /* functions */
 tmi_t *tmi_init(void);
 int tmi_connect(tmi_t *connection);
-int tmi_handle(tmi_t *connection, void (handler)(tmi_t *, tmievent_t *));
+int tmi_handle(tmi_t *connection, int (handler)(tmi_t *, tmievent_t *));
 int tmi_join(tmi_t *connection, char *oauth, char *username, char *channel);
 int tmi_msg(tmi_t *connection, const char *fmt, ...);
 

@@ -107,7 +107,7 @@ tmi_connect(tmi_t *connection)
 }
 
 int
-tmi_handle(tmi_t *connection, void (handler)(tmi_t *, tmievent_t *))
+tmi_handle(tmi_t *connection, int (handler)(tmi_t *, tmievent_t *))
 {
 	if (fork() != 0)
 		return 0;
